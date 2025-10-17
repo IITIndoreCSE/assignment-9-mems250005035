@@ -1,20 +1,16 @@
 #include <iostream>
 #include <string>
-#include <limits>  // For numeric limits
-
+#include <limits>  
 using namespace std;
 
-// Define the SalesRecord structure
 struct SalesRecord {
     string month;
     float amount;
 };
 
 int main() {
-    // Declare an array of 12 SalesRecord structures (representing a year)
     SalesRecord sales[12];
 
-    // Accept user input for the month and amount for all 12 months
     cout << "Enter sales data for all 12 months:" << endl;
     for (int i = 0; i < 12; ++i) {
         cout << "Enter the name of month " << i + 1 << ": ";
@@ -23,12 +19,10 @@ int main() {
         cin >> sales[i].amount;
     }
 
-    // Initialize variables to store the month with max and min sales
     string maxMonth, minMonth;
-    float maxSales = numeric_limits<float>::min();  // Set to smallest possible float
-    float minSales = numeric_limits<float>::max();  // Set to largest possible float
+    float maxSales = numeric_limits<float>::min();  
+    float minSales = numeric_limits<float>::max();  
 
-    // Find the month with the maximum and minimum sales using a single pass
     for (int i = 0; i < 12; ++i) {
         if (sales[i].amount > maxSales) {
             maxSales = sales[i].amount;
@@ -40,7 +34,6 @@ int main() {
         }
     }
 
-    // Display the month with the maximum and minimum sales
     cout << "\nMonth with the highest sales: " << maxMonth << " (" << maxSales << ")\n";
     cout << "Month with the lowest sales: " << minMonth << " (" << minSales << ")\n";
 
